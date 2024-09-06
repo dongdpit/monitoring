@@ -1,0 +1,14 @@
+[Unit]
+Description=AlertManager
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Type=simple
+ExecStart=/usr/local/alertmanager/alertmanager --config.file=/usr/local/alertmanager/alertmanager.yml --cluster.advertise-advise-address=0.0.0.0:9093
+
+[Install]
+WantedBy=multi-user.target
+
+
