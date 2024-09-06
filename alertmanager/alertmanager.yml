@@ -1,0 +1,19 @@
+global:
+  resolve_timeout: 5m
+
+templates:
+  - '/usr/local/alertmanager/*.tmpl'
+
+route:
+  group_by: ['alertname']
+  group_wait: 30s
+  group_interval: 30s
+  repeat_interval: 30s
+  receiver: 'alert_channel'
+receivers:
+  - name: 'alert_channel'
+    msteams_configs:
+      - webhook_url: 'https://fptscomvn.webhook.office.com/webhookb2/b591f452-b445-498b-97fc-baab9789d783@82fd02f1-ce74-486e>
+        send_resolved: true
+        http_config:
+          proxy_url: 'http://ip:port'
