@@ -1,0 +1,11 @@
+[Unit]
+Description=Postfix Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+ExecStart=/usr/local/postfix_exporter/postfix_exporter
+
+[Install]
+WantedBy=default.target
