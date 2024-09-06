@@ -1,0 +1,11 @@
+[Unit]
+Description=Nginx Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+ExecStart=/usr/local/nginx_exporter/nginx-prometheus-exporter -nginx.scrape-uri=http://ip:81/nginx_status
+
+[Install]
+WantedBy=default.target
