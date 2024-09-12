@@ -11,3 +11,5 @@ https://github.com/prometheus/snmp_exporter
 https://github.com/kumina/postfix_exporter
 
 https://github.com/danielqsj/kafka_exporter
+
+https://github.com/prometheus/jmx_exporter
