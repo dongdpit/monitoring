@@ -1,0 +1,16 @@
+[Unit]
+Description=kafka Service
+After=network-online.target
+Requires=network-online.target
+
+[Service]
+Type=simple
+Restart=on-failure
+WorkingDirectory=/root/kafka
+
+Environment="KAFKA_OPTS=-javaagent:/root/jmx_prometheus_javaagent-1.0.1.jar=12345:/root/config.yml"
+ExecStart=/root/kafka/bin/kafka-server-start.sh  /root/kafka/config/kraft/server.properties
+ExecStop=/root/kafka/bin/kafka-server-stop.sh  /root/kafka/config/kraf/server.properties
+
+[Install]
+WantedBy=multi-user.target
