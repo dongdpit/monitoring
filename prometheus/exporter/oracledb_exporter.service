@@ -1,0 +1,11 @@
+[Unit]
+Description=Service for oracle telemetry client
+After=network.target
+[Service]
+Type=oneshot
+Environment=/etc/default/oracledb_exporter
+ExecStart=/usr/local/bin/oracledb_exporter  \
+  --default.metrics "${DEFAULT_METRICS}"  \
+  --log.level error --web.listen-address 0.0.0.0:9161
+[Install]
+WantedBy=multi-user.target
