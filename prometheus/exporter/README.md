@@ -13,3 +13,5 @@ https://github.com/kumina/postfix_exporter
 https://github.com/danielqsj/kafka_exporter
 
 https://github.com/prometheus/jmx_exporter
+
+https://github.com/iamseth/oracledb_exporter
