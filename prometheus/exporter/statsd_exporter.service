@@ -1,0 +1,15 @@
+[Unit]
+Description=Statsd Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+#Environment=/etc/default/statsd_exporter
+ExecStart=/usr/local/statsd_exporter/statsd_exporter \
+  --statsd.mapping-config /usr/local/statsd_exporter/mapping.yml \
+  --statsd.listen-udp 0.0.0.0:8125 \
+  --web.listen-address 0.0.0.0:9102
+
+[Install]
+WantedBy=default.target
